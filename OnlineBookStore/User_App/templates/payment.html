@@ -1,0 +1,303 @@
+{%extends "home.html"%}
+
+{%block "scroll"%}
+{%endblock%}
+
+{%block "search"%}
+{%endblock%}
+
+{%block "slide"%}
+{%endblock%}
+{%block "main"%}
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Document</title>
+   <style>
+    *
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+.form-s
+{
+    position: relative;
+    place-items: center;
+}
+.form-p
+{
+    position: relative;
+    place-items: center;
+    margin-top: 5px;
+}
+
+.textbox
+{
+    border: 2px solid rgb(44, 23, 23);
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    padding: 10px;
+    color: rgb(23, 1, 1);
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.form-lable
+{
+    color: rgb(49, 24, 24);
+    position: absolute;
+    top: 0.9rem;
+    left: 7.0rem;
+    cursor:auto;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 400;
+    margin-top: 20px;
+    transition: top 200ms ease-in,left 200ms ease-in, font-size 200ms ease-in;
+}
+.textbox:focus
+{
+    border: 2px solid rgb(19, 212, 19);
+}
+.textbox:focus ~ .form-lable,
+.textbox:not(:placeholder-shown).textbox:not(:focus)~ .form-lable
+{
+    top: -0.6rem;
+    left: 7.0rem;
+    font-size: 9px;
+    font-weight: 400;
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: rgb(255, 110, 6);
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
+button.btn-success-l:active
+{
+ background-color: rgb(2, 202, 32);
+ border:none;
+ color: rgb(255, 255, 255);
+
+}
+button.btn-success-l
+{
+    padding: 5px 30px;
+    background: #54ff41;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    width: 300px;
+
+
+}
+
+
+.row
+{
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+ text-align: center;
+ margin-left: 350px;
+ width: 400px;
+
+ margin-top: -500px;
+}
+
+
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+font: 24px/36px sans-serif;
+width: 550px;
+height: 500px;
+overflow:auto;
+margin-top: 40px;
+margin-left: 50px;
+justify-content: left;
+
+
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 2px;
+height: 2px;
+}
+
+::-webkit-scrollbar-track {
+border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  
+border: none;
+}
+
+.col-sm-4
+{
+  
+  width: 500px;
+  text-align: center;
+  
+}
+.well
+{
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+}
+
+   </style>
+</head>
+<body id="pay">
+<div class="row-head">
+  <h1> {{ message}} </h1>
+</div>
+ 
+<div class="myBox">
+<div class="col-sm-4">
+  <div class="well">
+ <center>
+  <table border="0" width="410px">
+    <tr><td colspan="2"> <h2 style="font-size: 28px;"    </h2></td></tr>
+    <tr><td align="left">
+      <h2 style="font-size: 28px;"  >Price (1) item Qty ({{request.session.qty}}) </h2>
+    </td>
+  <td align="right">
+    <h2><i class="fa fa-rupee" style="font-size: 28px;"  > {{request.session.t_price}}</i></h2>
+  </td></tr>
+
+  <tr><td align="left">
+    <h2 style="font-size: 28px; "  >Discount</h2>
+  </td>
+<td align="right">
+  <h2 style="font-size: 28px;color: rgb(27, 216, 30);">- <i class="fa fa-rupee" style="font-size: 28px; color: rgb(10, 227, 7);"  > {{request.session.discount}}</i></h2>
+</td></tr>
+
+<tr><td align="left">
+  <h2 style="font-size: 28px;"  >Delivery Charges</h2>
+</td>
+<td align="right">
+<h2 style="font-size: 28px;color: rgb(27, 216, 30);">+ <i class="fa fa-rupee" style="font-size: 28px;color: rgb(27, 216, 30);"  > {{request.session.delivery_c}}</i></h2>
+</td></tr>
+
+
+
+<tr><td colspan="2" ><h1 style="border-top: 2px solid;" ></h1></td></tr>
+
+<tr><td align="left">
+<h2 style="font-size: 28px; "  >Amount Payable </h2>
+</td>
+<td align="right">
+<h2><i class="fa fa-rupee" style="font-size: 28px;"  > {{request.session.amount_f}}</i></h2>
+</td></tr>
+
+  </table>
+ </center>
+
+    </div>
+    
+  </div>
+</div>
+
+  <form method="post"  id="main" style="max-width:500px;margin:auto">
+    {%csrf_token%}
+    <div class="row">
+        <div class="form-l">
+         <h2> Card Details </h2>
+        </div>
+
+        <div class="form-s">
+          <i class="glyphicon glyphicon-user" style="font-size: 15px;"></i>
+          <input type="text" class="textbox" placeholder=" " required="required" name="cname" value="{{request.session.uname}}" />
+          <label class="form-lable" > Name on Card </label>
+      </div>
+  
+        <div class="form-s">
+          <i class="fa fa-cc-visa" style="font-size: 15px;"></i>
+          <input type="number" class="textbox" placeholder=" " required="required" name="cnumber" />
+          <label class="form-lable" > Card Number </label>
+      </div>
+
+        <div class="form-p">
+          <i class="glyphicon glyphicon-lock" style="font-size: 15px;"></i>
+          <input type="password" class="textbox" placeholder=" " required="required" name="cvv" />
+          <label class="form-lable" > CVV </label>
+        </div>
+        <div class="form-p">
+            <i class='	glyphicon glyphicon-calendar' style="font-size: 15px;"></i>
+            <input type="text" class="textbox" placeholder=" " required="required" name="exdate" />
+            <label class="form-lable" > Expiry Date  </label>
+          </div>
+        <br><br><br><br>
+        <div class="form-l">
+          <button type="submit" class="btn btn-success-l">Order Place</button>
+        </div>
+        <br><br>
+      </div>
+  </form>     
+  <br><br>  <br><br>
+</body>
+</html>
+
+{%endblock%}
+
+def payment(request): 
+    if(request.method =="GET"):
+        return render(request,"payment.html",{})
+    else:
+        amount_f = request.session["amount_f"]
+        cname = request.session["uname"]
+        card_number = request.POST["cnumber"]
+        cvv = request.POST["cvv"]
+        expiry_date = request.POST["exdate"]
+        try:
+            customer = Payment_Card.objects.get(card_holder_name =cname,card_number=card_number,cvv=cvv,expiry=expiry_date)
+        except:
+            return redirect(Make_payment)
+        else: 
+            owner = Payment_Card.objects.get(card_number='744855',cvv='455',expiry='10/2028')
+            customer.balance -= float(amount_f)
+            owner.balance += float(amount_f)
+            customer.save()
+            owner.save()
+
+            myorder = orderInfo()
+            user = UserInfo.objects.get(username=request.session["uname"])
+            myorder.user  = user
+            myorder.amount =  request.session["amount_f"]
+            myorder.details = request.session["name"]
+            myorder.save()
+            return redirect(myOrder) 
+
+
+      
+{%block "footer"%}
+<footer  class="container-fluid text-center">
+  <p id="footer" >Online Store Copyright</p>  
+  <form class="form-inline"><p class="get-d">Get deals:</p>
+    <input type="email" class="form-control-e" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-success-f">Sign Up</button>
+  </form>
+</footer>
+{%endblock%}

@@ -1,0 +1,467 @@
+
+{%extends "home.html"%}
+ 
+
+{%block "scroll"%}
+{%endblock%}
+
+{%block "search"%}
+{%endblock%}
+
+{%block "slide"%}
+{%endblock%}
+{%block "cart"%}
+<li><a href="/showMycart" ><span style="font-size: 22;" class="glyphicon glyphicon-shopping-cart" ></span><b style="color: rgb(255, 94, 1);">({{cnt}})</b> Item</a></li>
+{%endblock%}
+{%block "main"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>.in</title>
+
+<script type="text/javascript">
+  function increment(data)
+  { 
+      var result = document.getElementById(data);
+      var num = parseInt(result.value);
+     
+      if(num<10)
+      {
+          num+=1;        
+      }
+    
+      result.value =  num;
+  }
+
+  function decrement(data)
+  {
+
+      var result = document.getElementById(data);
+      var num = parseInt(result.value);
+      if(num>1)
+      {
+          num-=1;
+      }        
+      result.value =  num;
+  }
+  function check()
+  {
+    var checkbox = document.getElementById("CheckBox_ID");
+    var output = document.getElementById("output");
+    
+    for(var a = 1; a<=5; a++)
+    {
+      var check = String(checkbox.value);
+      document.write(check.value)
+    }
+  }
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+      float: left;
+      width: 160px;
+      padding: 10px;
+      height: 210px; /* Should be removed. Only for demonstration */
+      border: none;
+    }
+  
+
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.column-t
+{
+  width: 600px;
+  height: 210px;
+  margin-left: 155px;
+  margin-top: -0.1px;
+  border: none;
+}
+.img{
+  margin-top: -9px;
+  margin-left: -9px;
+}
+.row-n
+{
+  width: 600px;
+  margin-left: 40px;
+  height: 30px;
+  font-size: 20px;
+}
+.row-p
+{
+  width: 600px;
+  margin-left: 40px;
+  height: 30px;
+  font-size: 14px;
+}
+.row-d
+{
+  width: 600px;
+  margin-left: 40px;
+  height: 35px;
+  font-size: 14px;
+}
+.row-c
+{
+  width: 600px;
+  margin-left: 40px;
+  height: 30px;
+  font-size: 14px;
+}
+.row-q
+{
+  width: 600px;
+  margin-left: 40px;
+  height: 50px;
+  font-size: 14px;
+}
+
+.btn.btn-success-u
+{
+  height: 25px;
+  margin-left: 0px;
+  margin-top: -20px;
+  background-color: rgb(9, 167, 1);
+  color: #ffffff;
+  padding-inline:inherit;
+  padding: 2px 5px 15px;
+
+}
+
+.btn.btn-success-r
+{
+  height: 25px;
+  margin-left: 80px;
+  margin-top: -90px;
+  background-color: rgb(255, 106, 0);
+  color: #ffffff;
+  padding: 2px 5px 15px;
+}
+
+
+
+.btn.btn:active
+{
+  background: #ffffff;
+}
+
+.row
+{
+  margin-left: -23px;
+  width: 750px;
+  height: 205px;
+  background-color: rgb(232, 232, 232);
+  border-radius: 5px;
+}
+
+
+.form-control
+{
+  padding: 3px 20px;
+  width: 80px;
+  height: 26.5px;
+  text-align: center;
+  margin-left: -54.5px;
+  border-radius: 1.5mm;
+  border: 1px solid ;
+  margin-top:3.2px; color: black;
+  
+ 
+}
+
+
+.row-btn
+{
+  width:  300px;
+  margin-left: 70px;
+  margin-top: -38px;
+  height: 40px;
+  
+}
+.column-1 {
+  float: left;
+  width: 18%;
+  margin-top:5px;
+}
+.glyphicon.glyphicon-minus
+{
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  margin-top: -55px;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #717171;
+  border: 0px;
+}
+.glyphicon.glyphicon-plus
+{
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  margin-top: -30px;
+  text-align: center;
+  font-size: 15px;
+  color: #ffffff;
+  background-color:#717171;
+  border: 0px;
+  margin-left: -54.3px;
+}
+.glyphicon.glyphicon-minus:active,.glyphicon.glyphicon-plus:active
+{
+
+  background-color: rgb(97, 255, 247);
+  color: rgb(0, 0, 0);
+}
+.row-main
+{
+  margin-left: 20px;
+  width: 880px;
+}
+.button.btn-success:active
+{
+  background-color: #008709;
+  color: #000000;
+}
+.button.btn-success
+{
+  font-size: 25px;
+  width: 320px;
+  height: 50px;
+  border-radius: 6px;
+  background-color: #7ff04e;
+  border: none;
+  color: rgb(0, 0, 0);
+  margin-left: 80px;
+
+}
+
+.col-4
+{
+  margin-top: -30px;
+  margin-left: 50px;
+  width: 1185px ;
+  height: 80px;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+}
+
+.col-44
+{
+  border: none;
+padding: 5px;
+font: 24px/36px sans-serif;
+width: 390px;
+height: 100px;
+margin-left: 850px;
+margin-top: 5px;
+background-color: rgb(232, 232, 232);
+box-shadow: 10px 10px 10px rgb(88, 85, 85);
+border-radius: 5px;
+}
+
+
+/* Force scrollbars onto browser window */
+
+
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+font: 24px/36px sans-serif;
+width: 750px;
+height: 550px;
+overflow:auto;
+cursor: pointer;
+margin-left: 50px;
+background-color: rgb(232, 232, 232);
+box-shadow: 10px 10px 10px rgb(88, 85, 85);
+border-radius: 5px;
+}
+
+.myBox-2 {
+border: none;
+padding: 5px;
+font: 24px/36px sans-serif;
+width: 390px;
+height: 450px;
+overflow:auto;
+cursor: pointer;
+margin-left: 850px;
+margin-top: -550px;
+background-color: rgb(232, 232, 232);
+box-shadow: 10px 10px 10px rgb(88, 85, 85);
+border-radius: 5px;
+}
+
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 2px;
+height: 2px;
+}
+
+::-webkit-scrollbar-track {
+border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  
+border: none;
+}
+.row-btn-buy{
+
+  margin-left: 30px;
+
+}
+
+.row-t{
+  margin-left: -50px;
+ 
+}
+
+.row-tt{
+  margin-left: -50px;
+  margin-top: -20px;
+ 
+}
+
+
+hr {
+  height: 1px;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  border: 0;
+  margin: 2rem 0;
+}
+
+
+
+</style>
+</head>
+<body id="body">
+{% if messages %}
+  {% for message in messages %}
+  {% if messages in 'Success'%}
+  <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong style="font-size: 16px;" ></strong> 
+      {{message}}
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  <br>
+{% endif %}
+
+{% if items %}
+<div class="col-4">
+  <div class="row-t">
+    <br>
+    <p align="left"  style="margin-left: 50px; font-size: 30px; " >Shopping Cart</p>
+  </div>
+  
+</div>
+<br><br>
+<div class="myBox">
+    <div class="row-main">
+       
+        {%for item in items%}
+        <form method="post" >
+          {%csrf_token%}
+       
+          <div class="row">
+
+              <div class="column">
+                  <img src="{{item.book.image.url}}" class="img" style="height:200px;width:150px"/>
+              </div>
+              <div class="column-t">
+                
+                <div class="row-i" ><input type="hidden" name="cart_id" value="{{item.id}}"/></div>
+                  <div class="row-n" > {{item.book.book_name}}</div>
+                  <div class="row-p"> <i class="fa fa-rupee" style="font-size: 18px;"  > {{item.book.price}}</i></div> 
+                  <div class="row-c">Category :  {{item.book.category.category_name}}</div>
+                  <div class="row-d">Description :  {{item.book.description}}</div>
+                  
+                 
+                  <div class="row-q">Quantity : 
+                    <div class="row-btn" >
+                      <div class="column-1">    
+                        <button type="button" class="glyphicon glyphicon-minus" onclick="decrement('qty{{item.book.id}}')"></button></div>
+                      <div class="column-1"><input  id="qty{{item.book.id}}" class="form-control" name="qty" value="{{item.qty}}"  readonly /></div>
+                      <div class="column-1"> <button type="button" class="glyphicon glyphicon-plus" onclick="increment('qty{{item.book.id}}')"></button></div>
+                      
+                    </div> 
+
+                </div>
+                <div class="row-p">
+                  <div class="col-sm"> <button class="btn btn-success-u" type="submit" name="action" value="update"><i class="glyphicon glyphicon-refresh" style="font-size: 12px;"></i> Update</button></div>
+                      <div class="col-sm"><button class="btn btn-success-r" type="submit" name="action" value="remove"><i class="glyphicon glyphicon-trash" style="font-size: 12px;"></i> Remove</button></div>
+
+                </div> 
+                
+              </div>
+            
+            </div><br>
+          </form>
+            {%endfor%}
+           
+      </div> 
+</div>
+
+<div class="myBox-2">
+
+      <div class="row-btn-buy"  >
+            {%for item in items%}
+        
+        <h3 style="font-size: 18px;background-color: rgb(255, 255, 255); border-bottom: 2px solid; border-radius: 5px;" >
+        <img src="{{item.book.image.url}}" style="height: 40px; width: 30px;"/>
+        ({{item.qty}}) items Subtotal is <i class="fa fa-rupee" style="font-size: 18px;"  ></i> {% widthratio item.book.price 1 item.qty %}
+      </h3>
+        {%endfor%}
+        <br>
+        
+      </div>
+      <br>
+    </div>
+    <div class="col-44">
+      <div class="row-tt">
+        <h2 align="center" style="font-size: 28px;margin-left: 45px;  ">Price ({{cnt}}) items :<i class="fa fa-rupee" style="font-size: 28px;"  ></i> {{request.session.Total_Price}}</h2>
+        <a href="/Make_payment#pay"><button class="button btn-success"    type="submit">Procced to Payment</button></a>
+      </div>
+      
+    </div>
+ 
+<br><br>
+{%else%}
+<div class="col-4">
+  <div class="row-t">
+    <br>
+    <p align="center"  style=" font-size: 30px; " >Your Shopping Cart is Empty </p>
+  </div>
+  
+</div>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+{%endif%}
+
+</body>
+</html>
+<br>
+{%endblock%}

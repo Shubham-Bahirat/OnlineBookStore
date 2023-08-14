@@ -1,0 +1,453 @@
+{%extends "home.html"%}
+
+{%block "scroll"%}
+{%endblock%}
+
+{%block "search"%}
+{%endblock%}
+{%block "slide"%}
+{%endblock%}
+
+{%block "main"%}
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script type="text/javascript">
+     
+
+      function increment()
+      { 
+          var result = document.getElementById("qty");
+          var num = parseInt(result.value);
+          var total_price = document.getElementById("total_price");
+          var discount = document.getElementById("discount");
+          var price = document.getElementById("price");
+          var delivery_charge = document.getElementById("delivery_charge");
+          var final_total = document.getElementById("final_total");
+         
+          if(num<5)
+          {
+              num+=1;        
+          }
+       
+          result.value =  num;
+          t_price =  price.value * num;
+          total_price.innerHTML = t_price
+          discount.innerHTML = parseInt(total_price.innerHTML * 0.08);
+          delivery_charge.innerHTML = num * 10;
+          Final_bill = (total_price.innerHTML) - (discount.innerHTML);
+          final_total.innerHTML = (parseInt(Final_bill) + parseInt(delivery_charge.innerHTML));
+          saving.innerHTML = (parseInt(total_price.innerHTML) - parseInt(final_total.innerHTML));
+
+      }
+    
+      function decrement()
+      {
+          var Final_bill = 0
+          var result = document.getElementById("qty");
+          var num = parseInt(result.value);
+          var total_price = document.getElementById("total_price");
+          var discount = document.getElementById("discount");
+          var price = document.getElementById("price");
+          var delivery_charge = document.getElementById("delivery_charge");
+          var total = document.getElementById("total");
+          if(num>1)
+          {
+              num-=1;
+          }        
+          result.value =  num;
+          total_price.innerHTML =  price.value * num;
+          discount.innerHTML = parseInt(total_price.innerHTML * 0.08);
+         
+          delivery_charge.innerHTML = num * 10;
+          Final_bill = (total_price.innerHTML) - (discount.innerHTML);
+          final_total.innerHTML = (parseInt(Final_bill) + parseInt(delivery_charge.innerHTML));
+          saving.innerHTML = (parseInt(total_price.innerHTML) - parseInt(final_total.innerHTML));
+         
+      }
+    
+   
+    </script>
+    <style>
+      *
+  {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'poppins',sans-serif;
+  }
+  
+  .form-s
+  {
+      position: relative;
+      place-items: center;
+  }
+  .form-p
+  {
+      position: relative;
+      place-items: center;
+      margin-top: 5px;
+  }
+  
+  .textbox
+  {
+      border: 2px solid rgb(44, 23, 23);
+      border-radius: 5px;
+      outline: none;
+      background: none;
+      padding: 10px;
+      color: rgb(23, 1, 1);
+      width: 300px;
+      height: 40px;
+      margin-top: 20px;
+      background-color: rgb(255, 255, 255);
+  }
+  .form-lable
+  {
+      color: rgb(49, 24, 24);
+      position: absolute;
+      top: 0.9rem;
+      left: 7.0rem;
+      cursor:auto;
+      font-family:'Times New Roman', Times, serif;
+      font-weight: 400;
+      margin-top: 20px;
+      transition: top 200ms ease-in,left 200ms ease-in, font-size 200ms ease-in;
+  }
+  .textbox:focus
+  {
+      border: 2px solid rgb(19, 212, 19);
+  }
+  .textbox:focus ~ .form-lable,
+  .textbox:not(:placeholder-shown).textbox:not(:focus)~ .form-lable
+  {
+      top: -0.6rem;
+      left: 7.0rem;
+      font-size: 9px;
+      font-weight: 400;
+      background: rgb(255, 255, 255);
+      border-radius: 3px;
+      border: 1px solid;
+      border-color: rgb(255, 110, 6);
+      color: black;
+      font-family:'Times New Roman', Times, serif;
+  }
+  
+  
+  button.btn-success-l:active
+  {
+   background-color: rgb(2, 202, 32);
+   border:none;
+   color: rgb(255, 255, 255);
+  
+  }
+  button.btn-success-l
+  {
+      padding: 5px 30px;
+      background: #54ff41;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 10px;
+      color: rgb(0, 0, 0);
+      margin-left: 20px;
+      margin-top: 0px;
+      width: 300px;
+  
+  }
+  .row-c,.row-q,.row-d
+  {
+      font-size: 16px;
+  }
+  
+  .row
+  {
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+   text-align: center;
+   margin-left: 750px;
+   width: 400px;
+   height: 500px;
+   border-radius: 5px;
+   margin-top: -500px;
+  }
+  .row-m
+  {
+    margin-left: 200px;
+  }
+  
+  
+  /* Box styles */
+  .myBox {
+  border: none;
+  padding: 5px;
+  font: 24px/36px sans-serif;
+  width: 650px;
+  height: 500px;
+  overflow:auto;
+  margin-top: 20px;
+  margin-left: 50px;
+  justify-content: left;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+  }
+  
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  border: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    
+  border: none;
+  }
+  
+  .col-sm-4
+  {
+    
+    width: 600px;
+    text-align: center;
+    margin-left: 20px;
+    background-color: rgb(232, 232, 232);
+
+  }
+  
+  
+  .row-btn
+  {
+    width:  300px;
+    margin-left: 80px;
+    margin-top: -38px;
+    height: 40px;
+  }
+  .column-1 {
+    float: left;
+    width: 18%;
+    margin-top:5px;
+
+  }
+  .glyphicon.glyphicon-minus
+  {
+    border-radius: 2px;
+    width: 25px;
+    height: 25px;
+    margin-top: -55px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #717171;
+    border: 0px;
+  }
+  .glyphicon.glyphicon-plus
+  {
+    border-radius: 2px;
+    width: 25px;
+    height: 25px;
+    margin-top: -30px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+    background-color:#5f5e5e;
+    border: 0px;
+    margin-left: -53px;
+  }
+  .glyphicon.glyphicon-refresh
+  {
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    margin-top: 2px;
+    text-align: center;
+    font-size: 15px;
+    color: #000000;
+    background-color:#ffffff;
+    border: 1px solid;
+    margin-left: -53px;
+  }
+  
+.form-control
+{
+  padding: 3px 20px;
+  width: 80px;
+  height: 26.5px;
+  text-align: center;
+  margin-left: -54px;
+  border-radius: 1mm;
+  border: 1px solid black;
+  margin-top:4px; color: black;
+ 
+}
+
+.col-4{
+  margin-top: -30px;
+  margin-left: 50px;
+  width: 1185px ;
+  height: 80px;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+}
+
+
+
+.row-t{
+  margin-left: -50px;
+ 
+}
+     </style>
+</head>
+<body>   
+  <div class="col-4">
+    <div class="row-t">
+      <br>
+      <p align="left"  style="margin-left: 50px; font-size: 30px; " >Checkout</p>
+
+    </div>
+   
+  </div>
+   
+  <form method="post" action="/buy_now">
+  {%csrf_token%}
+
+  <div class="myBox">
+   
+            <div class="row-m">
+                <div class="column">
+                    <img src="{{book.image.url}}" class="img" style="height:300px;width:230px"/>
+                </div>
+                <div class="column-t">
+                  
+                  <div class="row-i" ><input type="hidden" name="cart_id" value="{{book.id}}"/>
+                    <input type="hidden" id="price" value="{{book.price}}"/>
+                  </div>
+                    <div class="row-n" > {{book.book_name}}</div>
+                    <div class="row-p"> <i class="fa fa-rupee" style="font-size: 18px;"  > {{book.price}}</i></div> 
+                   
+                    <div class="row-q">Quantity : 
+                      <div class="row-btn">
+                      <div class="column-1">    
+                      <button type="button" class="glyphicon glyphicon-minus" onclick="decrement()"></button></div>
+                      <div class="column-1"><input  id="qty" class="form-control" name="qty" value="1"  readonly /></div>
+                      <div class="column-1"> <button type="button" class="glyphicon glyphicon-plus" onclick="increment()"></button></div>
+                      <button type="button" style="font-size: 30px;"  class="glyphicon glyphicon-refresh" onclick="decrement()"></button></div>
+                    </div>
+                    
+                        </div>
+                  </div>         
+                  <br><br>
+              
+              <div class="col-sm-4">
+                <div class="well">
+               <center>
+                <table border="0" width="510px">
+
+                  <tr><td colspan="2" ><h2 style="border-bottom: 1px solid;" > Shipping Address</h2></td></tr>
+    
+                  <tr><td colspan="2" ><h4 >{{address}}</h4></td></tr>
+                    <tr><td colspan="2" ><h2 style="border-bottom: 1px solid;" >Order Summary</h2></td></tr>
+                
+
+                  <tr><td align="left">
+                    <h2 style="font-size: 28px;"  >Price (1) item</h2>
+                  </td>
+                <td align="right">
+                  <h2><i class="fa fa-rupee" style="font-size: 28px;"  ><span id="total_price"  >{{book.price}}</span></i></h2>
+                </td></tr>
+              
+                <tr><td align="left">
+                  <h2 style="font-size: 28px; "  >Discount</h2>
+                </td>
+              <td align="right">
+                <h2 style="font-size: 28px;color: rgb(231, 0, 0);">- <i class="fa fa-rupee" style="font-size: 28px; color: rgb(231, 0, 0);"  ><span id="discount" ></span></i></h2>
+              </td></tr>
+              
+              <tr><td align="left">
+              <h2 style="font-size: 28px;"  >Delivery Charges</h2>
+              </td>
+              <td align="right">
+              <h2  style="font-size: 28px;color: rgb(27, 216, 30);">+ <i class="fa fa-rupee" style="font-size: 28px;color: rgb(27, 216, 30);"  ><span id="delivery_charge" ></span></i></h2>
+              </td></tr>
+             
+            
+              <tr><td colspan="2" ><h1 style="border-top: 2px solid;" ></h1></td></tr>
+              
+              <tr><td align="left">
+              <h2 style="font-size: 28px; "  >Amount Payable </h2>
+              </td>
+              <td align="right">
+              <h2><i class="fa fa-rupee" style="font-size: 28px;"  ><span id="final_total" ></span> </i></h2>
+              </td></tr>
+              
+              
+              <tr><td colspan="2" align="center">
+                <h2 style="font-size: 28px;color: #259d18; font-weight: 500; border-bottom: 1px solid;" > Your Savings : <i class="fa fa-rupee" style="font-size: 28px;color: #259d18;font-weight: 500;"  >  <span id="saving" ></span> (08%) </i></h2>
+                </td></tr>
+  
+                </table>
+               </center>
+              
+            </div>
+                  
+          </div>
+  
+      </div>
+    
+      <div class="row">
+        <div class="form-l">
+         <h2> Card Details </h2>
+        </div>
+
+        <div class="form-s">
+          <i class="glyphicon glyphicon-user" style="font-size: 15px;"></i>
+          <input type="text" class="textbox" placeholder=" " required="required" name="cname" value="{{request.session.uname}}" />
+          <label class="form-lable" > Name on Card </label>
+      </div>
+  
+        <div class="form-s">
+          <i class="fa fa-cc-visa" style="font-size: 15px;"></i>
+          <input type="number" class="textbox" placeholder=" " required="required" name="cnumber" />
+          <label class="form-lable" > Card Number </label>
+      </div>
+
+        <div class="form-p">
+          <i class="glyphicon glyphicon-lock" style="font-size: 15px;"></i>
+          <input type="password" class="textbox" placeholder=" " required="required" name="cvv" />
+          <label class="form-lable" > CVV </label>
+        </div>
+        <div class="form-p">
+            <i class='	glyphicon glyphicon-calendar' style="font-size: 15px;"></i>
+            <input type="text" class="textbox" placeholder=" " required="required" name="exdate" />
+            <label class="form-lable" > Expiry Date  </label>
+          </div>
+        <br><br><br><br> <br><br>
+        <div class="form-l">
+          <button type="submit" class="btn btn-success-l">Order Place</button>
+        </div>
+       
+      </div>
+    </form>
+    <br><br><br><br>
+    <br><br>
+ 
+ 
+
+ 
+
+</body>
+</html>
+
+{%endblock%}

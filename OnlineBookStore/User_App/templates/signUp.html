@@ -1,0 +1,182 @@
+{%extends "home.html"%}
+
+
+{%block "scroll"%}
+{%endblock%}
+
+
+{%block "slide"%}
+{%endblock%}
+
+{%block "main"%}
+ <br>
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    body{
+        background-color: rgb(188, 163, 163);
+    }
+    *
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+.form-s
+{
+    position: relative;
+    place-items: center;
+}
+.form-p
+{
+    position: relative;
+    place-items: center;
+    margin-top: 5px;
+}
+
+.textbox
+{
+    border: 2px solid rgb(44, 23, 23);
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    padding: 10px;
+    color: rgb(23, 1, 1);
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.form-lable
+{
+    color: rgb(49, 24, 24);
+    position: absolute;
+    top: 0.9rem;
+    left: 7.0rem;
+    cursor:auto;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 400;
+    margin-top: 20px;
+    transition: top 200ms ease-in,left 200ms ease-in, font-size 200ms ease-in;
+}
+.textbox:focus
+{
+    border: 2px solid rgb(19, 212, 19);
+}
+.textbox:focus ~ .form-lable,
+.textbox:not(:placeholder-shown).textbox:not(:focus)~ .form-lable
+{
+    top: -0.6rem;
+    left: 7.0rem;
+    font-size: 9px;
+    font-weight: 400;
+    background: rgb(255, 255, 255);
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: rgb(255, 110, 6);
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
+button.btn-success-l:active
+{
+ background-color: rgb(21, 255, 0);
+ border: 2px solid rgb(21, 255, 0) ;
+ color: rgb(255, 255, 255);
+
+}
+button.btn-success-l
+{
+    padding: 5px 30px;
+    background: #1cc22a;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+    width: 300px;
+
+
+}
+
+
+.row
+{
+ background-color: rgb(200, 206, 206);
+ text-align: center;
+ margin-left: 50px;
+ width: 400px;
+ border-radius: 25px;
+}
+
+   </style>
+</head>
+<body  id="main">
+  {% if messages %}
+  {% for message in messages %}
+  {% if messages in message %}
+  <div class="alert alert-success alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong style="font-size: 16px;" >{{message}}</strong> 
+     
+    </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<br/><br/>
+  <form method="post"  style="max-width:500px;margin:auto">
+    {%csrf_token%}
+    <div class="row" >
+        <div class="form-l">
+         <h2> Sign Up </h2>
+        </div>
+   
+    
+        <div class="form-s">
+            <i class="glyphicon glyphicon-user" style="font-size: 15px;"></i>
+            <input type="text" class="textbox" placeholder=" " required="required" name="uname" />
+            <label class="form-lable" > Username </label>
+        </div>
+
+        <div class="form-s">
+          <i class="glyphicon glyphicon-envelope" style="font-size: 15px;"></i>
+          <input type="email" class="textbox" placeholder=" " required="required" name="email" />
+          <label class="form-lable" > Email Address </label>
+      </div>
+
+        <div class="form-p">
+          <i class="glyphicon glyphicon-lock" style="font-size: 15px;"></i>
+          <input type="password" class="textbox" placeholder=" " required="required" name="psw" />
+          <label class="form-lable" > Create Password </label>
+        </div>
+
+       
+  
+        <br><br><br><br>
+        <div class="form-l">
+         <button type="submit" class="btn btn-success-l">Sign Up</button>
+        </div>
+        <br><br>
+      </div>
+  </form>     
+ <br><br> <br><br>
+</body>
+</html>
+
+{%endblock%}

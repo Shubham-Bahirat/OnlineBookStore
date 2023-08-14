@@ -1,0 +1,69 @@
+{%extends "home.html"%}
+{%block "slide"%}
+{%endblock%}
+{%block "scroll"%}
+{%endblock%}
+{%block "main"%}
+<style>
+    .col-4
+{
+  margin-top: -30px;
+  margin-left: 50px;
+  width: 1185px ;
+  height: 80px;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  border-radius: 5px;
+}
+
+</style>
+
+  <br><br>
+  {% if f_b or f_a %}
+ {%for bk in f_b%}
+
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-body"><a href="/ViewDetails/{{book.id}}" ><img src="{{bk.image.url}}" class="img-responsive" style="width:380x; height: 350px;" alt="Image"></a>
+          <p style="font-size: 16px; color: #891717;" id="name">{{bk.book_name}}</p> </div>
+        <div class="panel-footer">
+       
+        <i class="fa fa-rupee" style="font-size: 18px;"  > {{bk.price}}</i>
+            <a href="/ViewDetails/{{bk.id}}" ><button class="btn" >View Details</button></a>
+          
+        </div>
+ 
+    </div>
+
+  </div>
+  {%endfor%}
+
+{%for bk in f_a%}
+
+<div class="col-sm-4">
+    <div class="panel panel-primary">
+      <div class="panel-body"><a href="/ViewDetails/{{book.id}}" ><img src="{{bk.image.url}}" class="img-responsive" style="width:380x; height: 350px;" alt="Image"></a>
+        <p style="font-size: 16px; color: #891717;" id="name">{{bk.book_name}}</p> </div>
+      <div class="panel-footer">
+     
+      <i class="fa fa-rupee" style="font-size: 18px;"  > {{bk.price}}</i>
+          <a href="/ViewDetails/{{bk.id}}" ><button class="btn" >View Details</button></a>
+        
+      </div>
+
+  </div>
+
+</div>
+{%endfor%}
+<br><br><br>
+{%else%}
+  <div class="col-4">
+    <div class="row-t">
+      <br>
+      <p align="left"  style="margin-left: 50px; font-size: 30px; " >RESULT NOT FOUND :{{src}}</p>
+    </div>
+    
+  </div>
+{%endif%}
+
+{%endblock%}

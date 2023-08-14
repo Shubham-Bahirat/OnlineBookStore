@@ -1,0 +1,331 @@
+{%extends "home.html"%}
+
+
+{%block "scroll"%}
+{%endblock%}
+
+{%block "search"%}
+{%endblock%}
+
+{%block "slide"%}
+{%endblock%}
+{%block "main"%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+     
+
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create three equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 250px;
+      padding: 10px;
+      height: 310px; /* Should be removed. Only for demonstration */
+
+      margin-left: 50px;
+
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+    .container-fluid
+    {
+        margin-left: 0px;
+    }
+    .column-t
+    {
+      width: 510px;
+      margin-left: -40px;
+      height: 310px;
+      margin-top: 500px;
+    }
+    .img{
+      margin-top: -9px;
+      margin-left: 30px;
+    }
+    .row-n
+    {
+      width: 600px;
+      margin-left: 40px;
+      height: 30px;
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .row-p
+    {
+      width: 600px;
+      margin-left: 40px;
+      height: 30px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .row-d
+    {
+      width: 500px;
+      margin-left: 40px;
+      height: 50px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .row-c
+    {
+      width: 600px;
+      margin-left: 40px;
+      height: 30px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .row-q
+    {
+      width: 600px;
+      margin-left: 40px;
+      height: 50px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    .row
+    {
+      margin-left: 50px;
+      width: 820px;
+      height: 505px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .form-control
+    {
+      width: 60px;
+      height: 35px;
+      text-align: center;
+      margin-left: -10px;
+      border-radius: 3mm;
+      border: 0px;
+      margin-top: -7px;
+    }
+    
+    .row-btn
+    {
+      width:  300px;
+      margin-left: 90px;
+      margin-top: -31px;
+      height: 40px;
+    }
+    .column-1 {
+      float: left;
+      width: 18%;
+      margin-top: 10px;
+    }
+  
+   
+    .row-btn-add
+    {
+      width:  100%;
+      margin-top: 20px;
+      height: 5px;
+      margin-left: -1px;
+      margin-top: 40px;
+     
+    }
+    .button.btn-success
+    {
+      border-radius: 5px;
+      width: 378px;
+      height: 40px;
+      margin-left: 105px;
+      align-self: center;
+      font-size: 20px;
+      background: #ff7300;
+      border: none;
+    }
+    #addtocart
+    {
+      background-color: #ffe416;
+      color: black;
+    }
+    #addtocart:active
+    {
+      background-color: #1fff06;
+      color: black;
+    }
+    .button.btn-success:active
+    {
+      background: #29d35c;
+      border: none;
+      border-radius: 5px;
+    }
+
+.btn
+{
+  margin-top: -85px;
+  background-color: rgb(157, 161, 154);
+  margin-left: 110px;
+}
+
+
+    
+/* Box styles */
+.myBox {
+border: none;
+padding: 0px;
+font: 24px/36px sans-serif;
+width: 600px;
+height: 510px;
+overflow:auto;
+margin-left: 20px;
+margin-top: 20px;
+cursor: pointer;
+background-color: rgb(232, 232, 232);
+box-shadow: 10px 10px 10px rgb(88, 85, 85);
+border-radius: 5px;
+
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 2px;
+height: 2px;
+}
+
+::-webkit-scrollbar-track {
+border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  
+border: none;
+}
+.myBox-2 {
+border: none;
+padding: 0px;
+font: 24px/36px sans-serif;
+width: 580px;
+height: 650px;
+overflow:auto;
+margin-left: 660px;
+margin-top: -810px;
+background-color: rgb(232, 232, 232);
+box-shadow: 10px 10px 10px rgb(88, 85, 85);
+border-radius: 5px;
+
+}
+.col-sm-4
+{
+  height: 500px;
+ 
+}
+.col-4
+{
+  height: 130px;
+  width: 600px;
+  align-content: center;
+  background-color: rgb(232, 232, 232);
+  box-shadow: 10px 10px 10px rgb(88, 85, 85);
+  margin-left: 20px;
+  border-radius: 5px;
+  margin-top: -30px;
+}
+    </style>
+</head>
+<body>
+ 
+<form method="post" action="/addToCart" >
+  {%csrf_token%}
+<div class="myBox">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="column">
+            <br>
+              <img src="{{book.image.url}}" class="img" style="height:400px;width:300px"/>
+            </div>
+          <div class="column-t" >
+            <div class="row-i" >
+              <input type="hidden" name="bid" value="{{book.id}}"  />
+            </div>
+                <div class="row-n" >{{book.book_name}}</div><br>
+                <div class="row-c"><i class="fa fa-rupee" style="font-size: 18px;"  ></i> {{book.price}}</div>
+                <div class="row-q">Quantity :  
+                  <div class="row-btn" >  
+                  <div class="column-1"><select class="form-control" id="qty"  name="qty"  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                 </select></div>
+                  </div>
+                </div>
+        
+              <div class="row-p">Category :  {{book.category.category_name}}</div>
+              <div class="row-p" >Author : {{book.author_name}}</div>
+              <div class="row-d">Description :  {{book.description}}</div>
+         
+  </div>
+  </div>
+</div>
+</div>
+<div class="col-4">
+
+<div class="row-btn-add" >
+  <br>
+  <button class="button btn-success" id="addtocart"  type="submit">Add To Cart</button>
+</div>
+</form>
+
+<form action="/buy_now">
+<div class="row-btn-add" >
+
+  
+  <input type="hidden" name="bid" value="{{book.id}}"  /></div>
+  <br>
+    <a href=""></a><button class="button btn-success"onclick="decrement()"  type="submit">Buy Now</button>
+  </div>
+</form>
+</div>
+  
+<br><br><br><br><br><br><br><br>
+
+<div class="myBox-2">
+
+  <div class="row-vb">
+    <br>
+    {%for book in books%}
+   
+   
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-body"><a href="/ViewDetails/{{book.id}}" ><img src="{{book.image.url}}" class="img-responsive" style="width:380x; height: 350px;" alt="Image"></a>
+          <p style="font-size: 16px;" id="name">{{book.book_name}}</p> </div>
+        <div class="panel-footer">
+       
+        <i class="fa fa-rupee" style="font-size: 18px;"  > {{book.price}}</i>
+            <a href="/ViewDetails/{{book.id}}" ><button class="btn" >View Details</button></a>
+          
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+
+</div>
+</div>
+<br><br><br>
+</body>
+</html>
+
+{%endblock%}
+
+

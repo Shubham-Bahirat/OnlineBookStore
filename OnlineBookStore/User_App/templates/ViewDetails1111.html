@@ -1,0 +1,50 @@
+{%extends "home.html"%}
+
+{%block "main"%}
+<style>
+    #tb
+    {
+        margin-left: 200px;
+    }
+    .table-timecard
+    {
+        margin-left: 40px;
+        top: 10px;
+        height: 400px;
+    }
+   
+</style>
+
+
+<form method="post" action="/addToCart"> 
+    {%csrf_token%}
+    <h1>...View Details...</h1>
+     
+            <table class="timecard" border="1" >
+                <tr><td><img src="{{book.image.url}}" class="img" style="height:300px;width:200px"/></td></tr>
+                          
+                <tr><td>Book Name</td> 
+                    <input type="hidden" name="bid" value="{{book.id}}"  />
+                    <td>  {{book.book_name}}</td></tr>
+                <tr> <td>Book Price </td> <td> {{book.price}}</td></tr>
+                <tr><td>Description </td> <td>{{book.description}}</td></tr>
+                <tr>  <td>Category </td> <td>   {{book.category.category_name}}</td></tr>
+                <tr>   <td>Quantity </td> <td> <select class="form-control" name="qty">
+               <option>1</option>
+               <option>2</option>
+               <option>3</option>
+               <option>4</option>
+               <option>5</option>
+               </select>
+               </td></tr>
+            </table>
+        </td></tr> 
+    <tr><td>
+        <button class="button btn-success" type="submit">Add To Cart</button>
+        </td></tr>
+
+                    </td>
+                </tr>
+              
+</form>
+{%endblock%}

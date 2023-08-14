@@ -1,0 +1,55 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+body
+{
+    width: 800px;
+    height: 25vh;
+    display: grid;
+    place-items: center;
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+}
+.form
+{
+    position: relative;
+}
+.textbox
+{
+    border: 2px solid rgb(112, 75, 75);
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    padding: 10px;
+    color: rgb(136, 91, 91);
+    width: 300px;
+    height: 30px;
+}
+.form-lable
+{
+    color: rgb(136, 91, 91);
+    position: absolute;
+    top: 0.4rem;
+    left: 0.8rem;
+    cursor: text;
+    transition: top 200ms ease-in,left 200ms ease-in, font-size 200ms ease-in;
+}
+.textbox:focus
+{
+    border: 2px solid rgb(19, 212, 19);
+}
+.textbox:focus ~ .form-lable,
+.textbox:not(:placeholder-shown).textbox:not(:focus)~ .form-lable
+{
+    top: -0.3rem;
+    left: 0.5rem;
+    font-size: 10px;
+    background: rgb(255, 190, 51);
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: chocolate;
+}
